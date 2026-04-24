@@ -21,13 +21,13 @@ const GOD = god(;
 )
 
 using LoopOSMainAgentTextCommunication
-const ROUTERTEXTLOCATION = "ipc://./routertext" # change to tcp if on separate machines
-const PUBTEXTLOCATION = "ipc://./pubtext" # change to tcp if on separate machines
+const ROUTERTEXTLOCATION = "ipc://textrouter.ipc" # change to tcp if on separate machines
+const PUBTEXTLOCATION = "ipc://textpub.ipc" # change to tcp if on separate machines
 const TEXTCOMMUNICATIONTASK = LoopOSMainAgentTextCommunication.init(ROUTERTEXTLOCATION, PUBTEXTLOCATION)
 
 using LoopOSMainAgentgodCommunication
-const CREATETOGLOCATION = "ipc://./createtog" # change to tcp if on separate machines
-const OBSERVETOGLOCATION = "ipc://./observetog" # change to tcp if on separate machines
+const CREATETOGLOCATION = "ipc://togcreate.ipc" # change to tcp if on separate machines
+const OBSERVETOGLOCATION = "ipc://togobserve.ipc" # change to tcp if on separate machines
 const CREATETOGTASK, OBSERVETOGTASK = LoopOSMainAgentgodCommunication.init(CREATETOGLOCATION, OBSERVETOGLOCATION, Ω)
 
 using LoopOSAgentManagement
