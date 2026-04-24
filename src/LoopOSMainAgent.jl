@@ -1,9 +1,11 @@
 module LoopOSMainAgent
 
-const T = Float64
+# const T = Float64
 
-using TheoryOfGod: 𝕋, t, ○
+using TheoryOfGod: 𝕋, ○, T
 const Ω = 𝕋()
+import TheoryOfGod: t
+t() = t(Ω)
 
 using StaticArrays
 using TheoryOfGodgod: god
