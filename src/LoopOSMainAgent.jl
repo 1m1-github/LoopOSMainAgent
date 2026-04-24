@@ -1,7 +1,5 @@
 module LoopOSMainAgent
 
-# const T = Float64
-
 using TheoryOfGod: 𝕋, ○, T
 const Ω = 𝕋()
 import TheoryOfGod: t
@@ -23,13 +21,16 @@ const GOD = god(;
 using LoopOSMainAgentTextCommunication
 const ROUTERTEXTLOCATION = "ipc://textrouter.ipc" # change to tcp if on separate machines
 const PUBTEXTLOCATION = "ipc://textpub.ipc" # change to tcp if on separate machines
-const TEXTCOMMUNICATIONTASK = LoopOSMainAgentTextCommunication.init(ROUTERTEXTLOCATION, PUBTEXTLOCATION)
 
 using LoopOSMainAgentgodCommunication
 const CREATETOGLOCATION = "ipc://togcreate.ipc" # change to tcp if on separate machines
 const OBSERVETOGLOCATION = "ipc://togobserve.ipc" # change to tcp if on separate machines
-const CREATETOGTASK, OBSERVETOGTASK = LoopOSMainAgentgodCommunication.init(CREATETOGLOCATION, OBSERVETOGLOCATION, Ω)
 
 using LoopOSAgentManagement
+
+function start()
+    LoopOSMainAgentTextCommunication.start(ROUTERTEXTLOCATION, PUBTEXTLOCATION)
+    LoopOSMainAgentgodCommunication.start(CREATETOGLOCATION, OBSERVETOGLOCATION, Ω)
+end
 
 end
