@@ -1,0 +1,18 @@
+name = "LoopOSMainAgent"
+uuid = "383a037e-1931-499f-ba5a-718ae055aa51"
+version = "1.0.0"
+authors = ["1m1 <imi@1m1.io>"]
+
+[deps]
+LoopOSMainAgentgodCommunication = "c88efa1e-98af-4ac2-839b-69b53e3bc0ad"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+TheoryOfGodgod = "2387dfef-0ca6-4bf7-8c6c-1d9d362a4086"
+LoopOSMainAgentTextCommunication = "43f8f9e4-5995-4c15-81e0-99d4da3ccbd3"
+LoopOSAgentManagement = "1a7464de-1839-49ef-901c-5f240839f510"
+
+[compat]
+LoopOSMainAgentgodCommunication = ">=1.0.0"
+StaticArrays = ">=1.9.18"
+TheoryOfGodgod = ">=3.0.0"
+LoopOSMainAgentTextCommunication = ">=2.0.0"
+LoopOSAgentManagement = ">=2.0.0"
