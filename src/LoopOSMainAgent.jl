@@ -9,8 +9,9 @@ t() = t(Ω)
 
 using StaticArrays
 using TheoryOfGodgod: god
+const invϕ = one(T) / MathConstants.golden
 const GOD = god(;
-    d = SA[zero(T)],
+    d = SA[invϕ, invϕ^2, invϕ^3],
     t = t(),
     ẑeroμ = SA[○, ○, ○],
     ôneμ = SA[○, ○, ○],
