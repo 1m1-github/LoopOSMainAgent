@@ -1,14 +1,18 @@
 module LoopOSMainAgent
 
 using TheoryOfGod: 𝕋, ○, T
+using LoopOSAgentManagement
+using StaticArrays
+using TheoryOfGodgod: god
+using LoopOSMainAgentTextCommunication
+using LoopOSMainAgentgodCommunication
+
 const Ω = 𝕋()
 import TheoryOfGod: t
 t() = t(Ω)
 
-using StaticArrays
-using TheoryOfGodgod: god
 const invϕ = one(T) / MathConstants.golden
-const GOD = god(;
+const GOD = god
     ω = Ω,
     d = SA[invϕ, invϕ^2, invϕ^3],
     t = t(),
@@ -18,19 +22,15 @@ const GOD = god(;
     ♯ = (10^3, 10^3),
 )
 
-using LoopOSMainAgentTextCommunication
 const ROUTERTEXTLOCATION = "ipc://textrouter.ipc" # change to tcp if on separate machines
 const PUBTEXTLOCATION = "ipc://textpub.ipc" # change to tcp if on separate machines
-
-using LoopOSMainAgentgodCommunication
 const CREATETOGLOCATION = "ipc://togcreate.ipc" # change to tcp if on separate machines
 const OBSERVETOGLOCATION = "ipc://togobserve.ipc" # change to tcp if on separate machines
 
-using LoopOSAgentManagement
-
-function start()
+function start(name)
     LoopOSMainAgentTextCommunication.start(ROUTERTEXTLOCATION, PUBTEXTLOCATION)
     LoopOSMainAgentgodCommunication.start(CREATETOGLOCATION, OBSERVETOGLOCATION, Ω)
+    LoopOS.awaken(name)
 end
 
 end
